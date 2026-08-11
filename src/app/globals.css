@@ -1,0 +1,731 @@
+@import "tailwindcss";
+
+/* ============================================
+   FlyUP Foundation — Design System (Tailwind v4)
+   60-30-10 Rule: White / Blue / Orange
+   ============================================ */
+
+@theme inline {
+  /* --- Colors: 60/30/10 --- */
+  --color-white: #FFFFFF;
+  --color-off-white: #F8F9FC;
+  --color-light-gray: #F1F3F8;
+
+  --color-blue-900: #1E3A8A;
+  --color-blue-700: #1D4ED8;
+  --color-blue-600: #2563EB;
+  --color-blue-500: #3B82F6;
+  --color-blue-100: #DBEAFE;
+  --color-blue-50: #EFF6FF;
+
+  --color-orange-500: #F97316;
+  --color-orange-600: #EA580C;
+  --color-orange-400: #FB923C;
+  --color-orange-50: #FFF7ED;
+
+  --color-charcoal: #1E1E2E;
+  --color-charcoal-light: #3B3B50;
+  --color-gray-500: #6B7280;
+  --color-gray-400: #9CA3AF;
+  --color-gray-300: #D1D5DB;
+  --color-gray-200: #E5E7EB;
+
+  /* --- Typography --- */
+  --font-header: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.12);
+  --shadow-nav: 0 2px 20px rgba(0, 0, 0, 0.06);
+
+  /* --- Easing --- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Animations --- */
+  --animate-logo-float: logo-float 4s ease-in-out infinite;
+  --animate-bounce-scroll: bounce-scroll 2.5s infinite;
+  --animate-marquee: marquee 35s linear infinite;
+}
+
+/* --- Keyframes --- */
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes bounce-scroll {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-12px); }
+  60% { transform: translateX(-50%) translateY(-6px); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Base Styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(249, 115, 22, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(30, 58, 138, 0.04) 0%, transparent 70%),
+    linear-gradient(180deg, #f9fafb 0%, #f3f4f6 35%, #e5e7eb 65%, #d1d5db 100%);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* --- Button Shine Effect --- */
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(-100%);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.btn-shine:hover::after {
+  transform: translateX(0);
+}
+
+/* --- Vanta Fallback --- */
+.vanta-fallback {
+  background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 40%, #93C5FD 70%, #DBEAFE 100%);
+}
+
+/* --- Pre-hero Bottom Gradient Fade --- */
+.pre-hero-gradient::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(to bottom, transparent 0%, #EEF0F6 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* --- Nav Link Underline Effect --- */
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-blue-600);
+  transition: width 0.3s var(--ease-out);
+  border-radius: 2px;
+}
+
+.nav-link-underline:hover::after {
+  width: 100%;
+}
+
+.nav-link-active::after {
+  width: 100% !important;
+}
+
+/* --- Carousel Dot Glow --- */
+.dot-active {
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+}
+
+/* --- Placeholder Dashed Border --- */
+.placeholder-dashed {
+  border: 2px dashed var(--color-gray-300);
+}
+
+/* ============================================
+   About Section — Cinematic Scroll Reveal
+   ============================================ */
+
+/* --- Data Stream Line --- */
+@keyframes data-stream {
+  0% {
+    width: 0%;
+    opacity: 0.6;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.about-data-stream {
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, transparent, var(--color-blue-500), var(--color-blue-600), var(--color-blue-500), transparent);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.2);
+  border-radius: 2px;
+  margin: 2rem auto;
+  opacity: 0;
+}
+
+.about-in-view .about-data-stream {
+  animation: data-stream 1.2s var(--ease-out) 0.3s forwards;
+}
+
+/* --- Word Illuminate --- */
+@keyframes word-illuminate {
+  0% {
+    color: var(--color-gray-300);
+    text-shadow: none;
+  }
+  100% {
+    color: var(--color-charcoal);
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
+  }
+}
+
+.about-word {
+  color: var(--color-gray-300);
+  transition: color 0.4s ease;
+  display: inline-block;
+  animation-fill-mode: forwards;
+}
+
+.about-in-view .about-word {
+  animation: word-illuminate 0.5s var(--ease-smooth) forwards;
+  /* delay is set inline per word via JS */
+}
+
+/* --- Image Reveal --- */
+@keyframes image-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-image-wrapper {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.about-in-view .about-image-wrapper {
+  animation: image-reveal 0.8s var(--ease-out) forwards;
+  /* delay set inline via JS to start after text completes */
+}
+
+/* --- CTA Reveal --- */
+@keyframes cta-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-cta {
+  opacity: 0;
+}
+
+.about-in-view .about-cta {
+  animation: cta-fade-in 0.6s var(--ease-out) forwards;
+  /* delay set inline */
+}
+
+/* --- Heading Reveal --- */
+@keyframes heading-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-heading {
+  opacity: 0;
+}
+
+.about-in-view .about-heading {
+  animation: heading-reveal 0.6s var(--ease-out) 0.1s forwards;
+}
+
+/* --- Image Glow Frame --- */
+.about-image-frame {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(59, 130, 246, 0.1),
+    0 8px 32px rgba(30, 58, 138, 0.1),
+    0 0 60px rgba(59, 130, 246, 0.06);
+  transition: box-shadow 0.4s ease;
+}
+
+.about-in-view .about-image-frame {
+  box-shadow:
+    0 0 0 1px rgba(59, 130, 246, 0.15),
+    0 12px 40px rgba(30, 58, 138, 0.12),
+    0 0 80px rgba(59, 130, 246, 0.08);
+}
+
+/* ============================================
+   Events Section — Master & Thumbnails
+   ============================================ */
+
+/* --- Master Image Crossfade --- */
+.event-master-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-smooth);
+}
+
+.event-master-image.active {
+  opacity: 1;
+}
+
+/* --- Thumbnail Strip --- */
+.event-thumb {
+  flex: 1 1 0%;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  opacity: 0.55;
+  filter: grayscale(30%);
+  transition: all 0.3s var(--ease-smooth);
+  border: 2px solid transparent;
+}
+
+.event-thumb:hover {
+  opacity: 0.85;
+  filter: grayscale(0%);
+  transform: translateY(-2px);
+}
+
+.event-thumb.active {
+  opacity: 1;
+  filter: grayscale(0%);
+  border-color: var(--color-blue-600);
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.2);
+}
+
+.event-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Event Section Divider --- */
+.event-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gray-300), transparent);
+  margin: 3rem auto;
+  max-width: 700px;
+}
+
+/* ============================================
+   Academy — 3D Flip Cards
+   ============================================ */
+
+.flip-card {
+  perspective: 1000px;
+  cursor: default;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s var(--ease-smooth);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  z-index: 2;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ============================================
+   Academy — Accordion (Terms & Conditions)
+   ============================================ */
+
+.academy-accordion-trigger {
+  cursor: pointer;
+  user-select: none;
+}
+
+.academy-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-smooth), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.academy-accordion-content.open {
+  opacity: 1;
+}
+
+/* ============================================
+   Academy — Gradient Flood Enroll Button
+   ============================================ */
+
+.btn-enroll {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  color: var(--color-charcoal);
+  border: 2px solid var(--color-gray-300);
+  transition: color 0.4s var(--ease-smooth), border-color 0.4s var(--ease-smooth), transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+  z-index: 1;
+}
+
+.btn-enroll::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #FACC15 0%, #F97316 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease-out);
+  z-index: -1;
+}
+
+.btn-enroll:hover {
+  color: #FFFFFF;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(249, 115, 22, 0.35);
+}
+
+.btn-enroll:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-enroll:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+}
+
+/* ============================================
+   Academy — Section Divider
+   ============================================ */
+
+.academy-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gray-300), transparent);
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* ============================================
+   Labs Page — Floating Robot Glow
+   ============================================ */
+
+@keyframes robot-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+@keyframes robot-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.2)) drop-shadow(0 0 70px rgba(249, 115, 22, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 45px rgba(59, 130, 246, 0.35)) drop-shadow(0 0 100px rgba(249, 115, 22, 0.18));
+  }
+}
+
+.labs-robot-float {
+  animation: robot-float 4.5s ease-in-out infinite, robot-glow-pulse 4.5s ease-in-out infinite;
+}
+
+/* ============================================
+   Labs Page — Lab Cards (Equal, Interactive)
+   ============================================ */
+
+.lab-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Animated accent bar on left */
+.lab-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 0%;
+  background: linear-gradient(180deg, var(--color-blue-500), var(--color-blue-600));
+  border-radius: 0 3px 3px 0;
+  transition: height 0.4s var(--ease-out), top 0.4s var(--ease-out);
+}
+
+.lab-card:hover::after {
+  height: 60%;
+  top: 20%;
+}
+
+/* Subtle gradient sweep on hover */
+.lab-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(249, 115, 22, 0.03) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.lab-card:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   Labs Page — Hover Accordion Cards
+   ============================================ */
+
+.labs-hover-card {
+  will-change: transform, box-shadow;
+}
+
+/* ============================================
+   Labs Page — "Why Choose" Feature Cards
+   ============================================ */
+
+.why-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Shine sweep on hover */
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s var(--ease-out);
+  z-index: 1;
+}
+
+.why-card:hover::before {
+  left: 130%;
+}
+
+/* Animated left accent */
+.why-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0px;
+  background: linear-gradient(180deg, var(--color-blue-500), var(--color-orange-500));
+  transition: width 0.35s var(--ease-out);
+  border-radius: 0 4px 4px 0;
+}
+
+.why-card:hover::after {
+  width: 4px;
+}
+
+/* Checkmark pulse */
+@keyframes check-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.why-card:hover .why-check {
+  animation: check-pulse 0.5s ease;
+  color: var(--color-orange-500);
+}
+
+/* ============================================
+   Labs Page — Section Divider
+   ============================================ */
+
+.labs-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gray-300), transparent);
+  margin-inline: auto;
+  max-width: 800px;
+}
+
+/* ============================================
+   About Page — Initiative Cards
+   ============================================ */
+
+.about-initiative-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.about-initiative-card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 0%;
+  background: linear-gradient(180deg, var(--color-blue-500), var(--color-orange-500));
+  border-radius: 0 3px 3px 0;
+  transition: height 0.4s var(--ease-out), top 0.4s var(--ease-out);
+}
+
+.about-initiative-card:hover::after {
+  height: 50%;
+  top: 25%;
+}
+
+/* ============================================
+   About Page — Narayan Pathak Small Frame Photo
+   ============================================ */
+
+.pathak-photo-frame {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid var(--color-blue-100);
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.08),
+    0 8px 30px rgba(30, 58, 138, 0.12);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
+}
+
+.pathak-photo-frame:hover {
+  border-color: var(--color-blue-500);
+  transform: scale(1.03);
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.18),
+    0 12px 40px rgba(30, 58, 138, 0.18);
+}
+
+/* ============================================
+   Cinematic Hero Image Effects (About Page)
+   ============================================ */
+
+@keyframes cinematic-breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.8; }
+}
+
+@keyframes trace-spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.cinematic-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(59,130,246,0.3) 0%, rgba(249,115,22,0.15) 35%, transparent 70%);
+  filter: blur(40px);
+  z-index: -10;
+  animation: cinematic-breathe 8s ease-in-out infinite;
+  transition: all 0.6s var(--ease-out);
+  pointer-events: none;
+}
+
+.cinematic-aura.hovered {
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle at center, rgba(59,130,246,0.4) 0%, rgba(249,115,22,0.3) 40%, transparent 80%);
+  opacity: 1;
+}
+
+.border-trace-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 70%, rgba(255,255,255,0.4) 85%, rgba(255,255,255,0.9) 98%, transparent 100%);
+  transform-origin: center;
+  animation: trace-spin 6s linear infinite;
+  transition: opacity 0.5s var(--ease-out);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hovered .border-trace-glow {
+  animation: trace-spin 1.5s linear infinite;
+  background: conic-gradient(from 0deg, transparent 60%, rgba(255,255,255,0.6) 80%, rgba(255,255,255,1) 98%, transparent 100%);
+  opacity: 1;
+}
