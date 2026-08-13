@@ -122,11 +122,11 @@ export default function PreHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen z-[100] pre-hero-gradient overflow-hidden"
+      className="relative w-full h-screen z-[100] pre-hero-gradient"
       style={{ transition: "opacity 0.6s var(--ease-smooth)" }}
     >
-      {/* Vanta Canvas — 3× wider on mobile so clouds fill the sky instead of sinking to the bottom */}
-      <div ref={vantaRef} className="absolute top-0 left-1/2 -translate-x-1/2 w-[300vw] h-full md:left-0 md:translate-x-0 md:w-full" />
+      {/* Vanta Canvas — taller + shifted up on mobile for raised clouds */}
+      <div ref={vantaRef} className="absolute inset-0 w-full h-[140%] -top-[30%] md:h-full md:top-0" />
 
       {/* Title Lockup */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
