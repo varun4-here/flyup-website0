@@ -96,7 +96,7 @@ export default function PartnersSection() {
           {[...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS].map((src, index) => (
             <div
               key={index}
-              className="min-w-[160px] h-[80px] relative flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 drop-shadow-md shrink-0"
+              className="min-w-[160px] h-[80px] relative flex items-center justify-center md:grayscale md:opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 drop-shadow-md shrink-0"
             >
               <Image
                 src={src}
