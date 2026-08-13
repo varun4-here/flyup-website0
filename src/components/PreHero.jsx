@@ -46,7 +46,8 @@ export default function PreHero() {
           sunColor: 0xff9919,
           sunGlareColor: 0xff6633,
           sunlightColor: 0xff9933,
-          speed: 1
+          speed: 1,
+          scaleMobile: 0.60
         });
       } catch (e) {
         console.warn("Vanta.js could not initialize:", e);
@@ -124,13 +125,13 @@ export default function PreHero() {
       className="relative w-full h-screen z-[100] pre-hero-gradient"
       style={{ transition: "opacity 0.6s var(--ease-smooth)" }}
     >
-      {/* Vanta Canvas */}
-      <div ref={vantaRef} className="absolute inset-0 w-full h-full" />
+      {/* Vanta Canvas — taller + shifted up on mobile for raised clouds */}
+      <div ref={vantaRef} className="absolute inset-0 w-full h-[140%] -top-[30%] md:h-full md:top-0" />
 
       {/* Title Lockup */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
         <div
-          className="flex flex-col items-center mb-[50vh] animate-[logo-float_4s_ease-in-out_infinite]"
+          className="flex flex-col items-center mb-[30vh] md:mb-[50vh] animate-[logo-float_4s_ease-in-out_infinite]"
         >
           <h1
             className="font-header font-[800] leading-none m-0 text-white select-none"
