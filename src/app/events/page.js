@@ -52,19 +52,19 @@ const MAHOTSAV_IMAGES = [
 ];
 
 const ECOBRICKS_IMAGES = [
-  { src: "/images/hero_students.png", alt: "Student volunteers manufacturing Eco-bricks in Gorakhpur" },
-  { src: "/images/lab_stem.png", alt: "Eco-brick furniture built by DDU Gorakhpur University students" },
-  { src: "/images/event_workshop.png", alt: "Eco-brick awareness drive led by Narayan Dutt Pathak" },
-  { src: "/images/lab_ai.png", alt: "Plastic waste collection for Eco-bricks in Gorakhpur" },
-  { src: "/images/event_hackathon.png", alt: "Eco Park construction planning in Gorakhpur" },
+  { src: "https://res.cloudinary.com/dabcbwfe/image/upload/v1784447603/DSC00417_qzj6dc.jpg", alt: "Student volunteers manufacturing Eco-bricks in Gorakhpur" },
+  { src: "https://res.cloudinary.com/dabcbwfe/image/upload/v1784447594/IMG_4884_jbevdc.jpg", alt: "Eco-brick furniture built by DDU Gorakhpur University students" },
+  { src: "https://res.cloudinary.com/dabcbwfe/image/upload/v1784447604/DSC00325_liu5ap.jpg", alt: "Eco-brick awareness drive led by Narayan Dutt Pathak" },
+  { src: "https://res.cloudinary.com/dabcbwfe/image/upload/v1784447596/DSC00418_rtkv9q.jpg", alt: "Plastic waste collection for Eco-bricks in Gorakhpur" },
+  { src: "https://res.cloudinary.com/dabcbwfe/image/upload/v1784447578/a5356523-16db-4c5d-9aa5-254c2c3a3d6e_mi89ng.jpg", alt: "Eco Park construction planning in Gorakhpur" },
 ];
 
 const SWAYAM_IMAGES = [
-  { src: "/images/event_workshop.png", alt: "Swayam Paise ki Pathshala event at DDU Gorakhpur University" },
-  { src: "/images/hero_students.png", alt: "200 women receiving financial literacy certificates at Swayam event" },
-  { src: "/images/event_hackathon.png", alt: "Abhay Singh addressing participants at Paise ki Pathshala" },
-  { src: "/images/lab_robotics.png", alt: "Poster competition and Kavya Goshti at Swayam Gorakhpur" },
-  { src: "/images/lab_stem.png", alt: "Prof. Anubhuti Dubey at Swayam financial empowerment event DDU" },
+  { src: "https://res.cloudinary.com/dabcbwfe/image/upload/v1784448611/IMG_2985_bjdwnf.jpg", alt: "Swayam Paise ki Pathshala event at DDU Gorakhpur University" },
+  { src: "https://res.cloudinary.com/dabcbwfe/image/upload/v1784448603/IMG_3001_qsceun.jpg", alt: "200 women receiving financial literacy certificates at Swayam event" },
+  { src: "https://res.cloudinary.com/dabcbwfe/image/upload/v1784448603/IMG_3017_l1xwyk.jpg", alt: "Abhay Singh addressing participants at Paise ki Pathshala" },
+  { src: "https://res.cloudinary.com/dabcbwfe/image/upload/v1784448614/IMG_3019_cbtgc0.jpg", alt: "Poster competition and Kavya Goshti at Swayam Gorakhpur" },
+  { src: "https://res.cloudinary.com/dabcbwfe/image/upload/v1786642083/Screenshot_2026-08-13_225740_rtoi34.png", alt: "Prof. Anubhuti Dubey at Swayam financial empowerment event DDU" },
 ];
 
 /* ──────────────────────────────────────────────

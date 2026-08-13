@@ -5,25 +5,25 @@ const mentors = [
     name: "Professor Ajay Shukla",
     title: "(HOD English Department DDUGU)",
     bio: "Professor Ajay Shukla sir has been a strong supporter and guiding force for FlyUP Foundation, providing valuable academic insight strategic direction and consistent encouragement for its education and innovation initiatives.",
-    image: "/images/hero_students.png", // Placeholder image, replace later
+    image: "https://res.cloudinary.com/dabcbwfe/image/upload/v1786640951/WhatsApp_Image_2026-08-11_at_6.19.53_PM_jcfc0c.jpg",
   },
   {
     name: "Byomkesh Mishra",
     title: "(Co-founder Medha Learning Foundation)",
     bio: "Byomkesh Mishra sir has played a key mentoring role in FlyUP Foundation's early journey, resolving critical initial queries, providing continuous guidance, and consistently advising and grooming the team for sustainable growth and impact.",
-    image: "/images/hero_students.png", // Placeholder image, replace later
+    image: "https://res.cloudinary.com/dabcbwfe/image/upload/v1786640985/111111111_vx2acx.jpg",
   },
   {
     name: "Kumar Rajesh Deepta",
     title: "(Founder & Director, Iottech Smart Products)",
     bio: "Kumar Rajesh Deepta sir supports FlyUP Foundation with his extensive entrepreneurial experience in the smart products and IoT sector, providing strategic guidance on technology integration and helping structure scalable innovation initiatives.",
-    image: "/images/hero_students.png", // Placeholder image, replace later
+    image: "https://res.cloudinary.com/dabcbwfe/image/upload/v1786640983/222222_lckgaj.png",
   },
   {
     name: "Deependra Mohan Singh",
     title: "(Assistant Professor Sociology DDUGU)",
     bio: "Deependra Mohan Singh sir provides academic leadership and strategic guidance to FlyUP Foundation, supporting curriculum alignment, institutional collaboration, and the integration of future ready learning models within school education systems.",
-    image: "/images/hero_students.png", // Placeholder image, replace later
+    image: "https://res.cloudinary.com/dabcbwfe/image/upload/v1786640962/WhatsApp_Image_2026-08-11_at_6.22.13_PM_bwnxai.jpg",
   },
 ];
 
