@@ -128,7 +128,7 @@ export default function PreHero() {
       <div ref={vantaRef} className="absolute inset-0 w-full h-full -translate-y-[25vh] scale-[1.35] md:translate-y-0 md:scale-100 origin-center" />
 
       {/* Title Lockup */}
-      <div className="absolute inset-0 flex flex-col items-center justify-end pb-[38vh] md:justify-center md:pb-0 z-10 pointer-events-none">
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-[48vh] md:justify-center md:pb-0 z-10 pointer-events-none">
         <div
           className="flex flex-col items-center mb-0 md:mb-[50vh] animate-[logo-float_4s_ease-in-out_infinite]"
         >
