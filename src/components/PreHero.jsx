@@ -121,21 +121,21 @@ export default function PreHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen z-[100] pre-hero-gradient"
+      className="relative w-full h-screen z-[100] pre-hero-gradient overflow-hidden"
       style={{ transition: "opacity 0.6s var(--ease-smooth)" }}
     >
       {/* Vanta Canvas */}
-      <div ref={vantaRef} className="absolute inset-0 w-full h-full" />
+      <div ref={vantaRef} className="absolute inset-0 w-full h-full -translate-y-[25vh] scale-[1.35] md:translate-y-0 md:scale-100 origin-center" />
 
       {/* Title Lockup */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-[38vh] md:justify-center md:pb-0 z-10 pointer-events-none">
         <div
-          className="flex flex-col items-center mb-[30vh] md:mb-[50vh] animate-[logo-float_4s_ease-in-out_infinite]"
+          className="flex flex-col items-center mb-0 md:mb-[50vh] animate-[logo-float_4s_ease-in-out_infinite]"
         >
           <h1
             className="font-header font-[800] leading-none m-0 text-white select-none"
             style={{
-              fontSize: "clamp(4rem, 10vw, 8rem)",
+              fontSize: "clamp(5.5rem, 10vw, 8rem)",
               textShadow:
                 "0 4px 30px rgba(0,0,0,0.2), 0 2px 10px rgba(0,0,0,0.1)",
               letterSpacing: "-0.02em",
@@ -146,7 +146,7 @@ export default function PreHero() {
           <div
             className="font-body font-bold text-black/95 uppercase mt-2"
             style={{
-              fontSize: "clamp(0.85rem, 2.1vw, 1.7rem)",
+              fontSize: "clamp(1.15rem, 2.1vw, 1.7rem)",
               letterSpacing: "0.52em",
               marginRight: "-0.52em",
             }}
